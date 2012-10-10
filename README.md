@@ -12,6 +12,7 @@ Add limits as hashes to the [ulimit][limits] array, like this:
 
   * In a role:
 
+```
     :ulimit => {
       :limits => [{'domain' => '@users',
                    'type'   => 'hard',
@@ -22,9 +23,11 @@ Add limits as hashes to the [ulimit][limits] array, like this:
                    'item'   => 'rss',
                    'value'  => '10000'}]
     },
+```
 
   * In a node.json-file for chef-solo:
 
+```
     "ulimit":{
         "limits":[{"domain":"@users",
                    "type":"hard",
@@ -37,7 +40,7 @@ Add limits as hashes to the [ulimit][limits] array, like this:
                    "value":"'10000'"
                   }]
     }
-
+```
 
 Usage
 =====
@@ -45,7 +48,7 @@ Usage
 LICENSE AND AUTHOR:
 ===================
 
-Copyright 2012, Jeff Eklund <jeff.eklund@gmail.com>
+Copyright 2012, Jeff Eklund
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
