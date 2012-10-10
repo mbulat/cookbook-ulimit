@@ -11,34 +11,33 @@ Attributes
 Add limits as hashes to the [ulimit][limits] array, like this:
 
   * In a role:
-``
-:ulimit => {
-  :limits => [{'domain' => '@users',
-                'type'  => 'hard',
-                'item'  => 'noproc',
-                'value' => '30'},
-              {'domain' => '*',
-                'type'  => 'hard',
-                'item'  => 'rss',
-                'value' => '10000'}]
-},
-``
+
+    :ulimit => {
+      :limits => [{'domain' => '@users',
+                   'type'   => 'hard',
+                   'item'   => 'noproc',
+                   'value'  => '30'},
+                  {'domain' => '*',
+                   'type'   /=> 'hard',
+                   'item'   => 'rss',
+                   'value'  => '10000'}]
+    },
 
   * In a node.json-file for chef-solo:
-``
-"ulimit":{
-    "limits":[{"domain":"@users",
-               "type":"hard",
-               "item":"noproc",
-               "value":"30"
-              },
-              {"domain":"*",
-               "type":"hard",
-               "item":"rss",
-               "value":"'10000'"
-              }]
-}
-``
+
+    "ulimit":{
+        "limits":[{"domain":"@users",
+                   "type":"hard",
+                   "item":"noproc",
+                   "value":"30"
+                  },
+                  {"domain":"*",
+                   "type":"hard",
+                   "item":"rss",
+                   "value":"'10000'"
+                  }]
+    }
+
 
 Usage
 =====
