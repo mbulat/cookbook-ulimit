@@ -13,6 +13,11 @@
 #        - the wildcard *, for default entry
 #        - the wildcard %, can be also used with %group syntax,
 #                 for maxlogin limit
+<% if node.platform? "ubuntu" %>
+#        - NOTE: group and wildcard limits are not applied to root.
+#          To apply a limit to the root user, <domain> must be
+#          the literal username root.
+<% end -%>
 #
 #<type> can have the two values:
 #        - "soft" for enforcing the soft limits
@@ -42,11 +47,17 @@
 #
 
 #*               soft    core            0
+<% if node.platform? "ubuntu" %>
+#root            hard    core            100000
+<% end %>
 #*               hard    rss             10000
 #@student        hard    nproc           20
 #@faculty        soft    nproc           20
 #@faculty        hard    nproc           50
 #ftp             hard    nproc           0
+<% if node.platform? "ubuntu" %>
+#ftp             -       chroot          /ftp
+<% end %>
 #@student        -       maxlogins       4
 
 
